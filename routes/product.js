@@ -111,7 +111,7 @@ router.get("/product", function (req, res) {
 });
 
 router.post("/brand", function (req, res) {
-        let name = req.body.name;
+        let name = req.body;
         const sql = "INSERT INTO `tb_brand` (`name`) VALUES (?);";
     
         if (name == "") {
