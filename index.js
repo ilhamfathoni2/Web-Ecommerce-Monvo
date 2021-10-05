@@ -70,6 +70,7 @@ app.get('/', (req, res) => {
             res.render('index', { 
                 title: 'Store',
                 isLogin: req.session.isLogin,
+                isAdmin:  req.session.admin,
                 product: results,
             });
         });

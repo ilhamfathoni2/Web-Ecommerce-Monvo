@@ -6,6 +6,7 @@
     <div class="d-flex justify-content-center mt-3 mb-3">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="/barnd">Brand</a></li>
             <li class="breadcrumb-item active" aria-current="page"><a href="">Category</a></li>
             <li class="breadcrumb-item"><a href="/product">Product</a></li>
@@ -21,9 +22,9 @@
                         {{message.message}}
                     </div>
                 {{/if}}
-                <h3 class="card-title text-center mt-4 mb-4">Input Category Product</h3>
+                <h3 class="card-title text-center mt-4 mb-4">Category Product</h3>
                 <form action="/category" method="POST">
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label>Category name</label>
                         <input type="text" name="name" class="form-control" placeholder="Enter category">
                     </div>
