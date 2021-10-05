@@ -7,6 +7,7 @@ const flash = require("express-flash");
 const app = express();
 const hbs = require("hbs");
 
+
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const adminRoute = require("./routes/admin");
@@ -69,7 +70,6 @@ app.get('/', (req, res) => {
             res.render('index', { 
                 title: 'Store',
                 isLogin: req.session.isLogin,
-                isAdmin: req.session.admin,
                 product: results,
             });
         });
@@ -89,8 +89,6 @@ app.get('/detailproduct/:id', (req, res) => {
             
             res.render('detailproduct', { 
                 title: 'Detail',
-                isLogin: req.session.isLogin,
-                userID: req.session.user,
                 detail: results,
             });
         });
