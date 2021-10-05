@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="static/img/Logo_monvo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Monvo | {{title}}</title>
+</head>
+<body>
+
+<div class="container mt-3">
+    
+    <div class="d-flex justify-content-center mt-2 mb-3">
+        <div class="card col-sm-6 mt-5">
+            <div class="card-body">
+                {{#if message}}
+                    <div class="alert alert-{{message.type}} mt-5 mb-3" role="alert">
+                        {{message.message}}
+                    </div>
+                {{/if}}
+                <h3 class="card-title text-center mt-4 mb-4">Edit Brand</h3>
+                {{#each data}}
+                <form action="/edit/brand/{{this.id}}" method="POST">
+                    <div class="form-group">
+                        <label>Brand name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter brand" value="{{this.name}}">
+                    </div>
+                {{/each}}
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-5 mb-3">Save Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

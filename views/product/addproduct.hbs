@@ -1,0 +1,68 @@
+{{> header}}
+{{> navauth}}
+
+<div class="container">
+    <div class="d-flex justify-content-center mt-3 mb-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/barnd">Brand</a></li>
+            <li class="breadcrumb-item"><a href="/category">Category</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Product</li>
+        </ol>
+    </nav>
+    </div>
+    
+    <div class="d-flex justify-content-center mt-3 mb-3">
+        <div class="card col-sm-6 mt-5">
+            <div class="card-body">
+                {{#if message}}
+                    <div class="alert alert-{{message.type}} mt-5 mb-3" role="alert">
+                        {{message.message}}
+                    </div>
+                {{/if}}
+                <h3 class="card-title text-center mt-4 mb-4">Upload Product</h3>
+                <form action="/product" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Product name</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" name="description" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="text" name="price" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <input type="file" name="image" class="form-control" onchange="handleChange()">
+                    </div>
+                    <div class="form-group">
+                        <label>stock</label>
+                        <input type="text" name="stock" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    <label>Brand</label>
+                        <select class="form-control" name="brand_id">
+                            {{#each dataBrand}}
+                            <option value="{{this.id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <label>Category</label>
+                        <select class="form-control" name="category_id">
+                            {{#each dataCategory}}
+                            <option value="{{this.id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-5 mb-2">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{> footerauth}}

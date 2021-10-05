@@ -1,0 +1,57 @@
+{{> header}}
+{{> navauth}}
+
+
+<div class="container">
+    <div class="d-flex justify-content-center mt-3 mb-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/barnd">Brand</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="">Category</a></li>
+            <li class="breadcrumb-item"><a href="/product">Product</a></li>
+        </ol>
+    </nav>
+    </div>
+    
+    <div class="d-flex justify-content-center mt-3 mb-3">
+        <div class="card col-sm-6 mt-5">
+            <div class="card-body">
+                {{#if message}}
+                    <div class="alert alert-{{message.type}} mt-5 mb-3" role="alert">
+                        {{message.message}}
+                    </div>
+                {{/if}}
+                <h3 class="card-title text-center mt-4 mb-4">Input Category Product</h3>
+                <form action="/category" method="POST">
+                    <div class="form-group">
+                        <label>Category name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter category">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Save</button>
+                </form>
+                <table class="table table-hover mt-4">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td class="text-center">
+                                <a href="category/edit/{{this.id}}" class="btn btn-warning">Edit</a>
+                                <a href="category/delete/{{this.id}}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{> footerauth}}
