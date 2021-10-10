@@ -1,0 +1,54 @@
+{{> header}}
+{{> nav}}
+
+<div class="container mt-3 mb-3">
+    {{#if message}}
+        <div class="alert alert-{{message.type}} mt-5 mb-3" role="alert">
+            {{message.message}}
+        </div>
+    {{/if}}
+</div>
+
+    <div class="container">
+
+        {{#each detail}}
+    <section>
+        <div class="card mt-4 mb-3">
+            <div class="card-body">
+                <div class="row">
+                <div class="col-sm-2">
+                    <div class="card-body text-center">
+                        <img src="http://localhost:4532/uploads/{{this.photo}}" width="60">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card-body">
+                        <h5>
+                            <b>{{this.name}}</b>
+                        </h5>
+                        <span class="badge badge-warning">Rp. {{this.price}} / pcs</span>
+                        <p class="mt-1">QTY : <b>{{this.qty}} pcs | </b>
+                            <a href="delete/{{this.id_trs}}" class="badge badge-danger ml-1 p-2">Delete</a>
+                        </p>
+                        <span class="badge badge-light mt-1">{{this.status_trsc}} !</span>
+                    </div>
+                </div>
+                <form action="transaction/{{this.id_trs}}" method="post">
+                <div class="col-sm">
+                    <div class="card-body float-right">
+                        <h5 class="text-danger">Total : <b>Rp. {{this.sub_total}}</b></h5>
+                        <button type="submit" class="btn btn-danger float-right mt-3 pl-4 pr-4">
+                            <b>Pay Now</b>
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    {{/each}}
+
+    
+
+
+    </div>

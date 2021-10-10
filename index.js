@@ -10,6 +10,8 @@ const hbs = require("hbs");
 
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
+const brandRoute = require("./routes/brand");
+const categoryRoute = require("./routes/category");
 const adminRoute = require("./routes/admin");
 const transactionRoute = require("./routes/transaction");
 const paymentRoute = require("./routes/payment");
@@ -38,7 +40,7 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 app.use(
     session({
       cookie: {
-        maxAge: 4 * 60 * 60 * 1000,
+        maxAge: 5 * 60 * 60 * 1000,
         secure: false,
         httpOnly: true,
       },
@@ -80,7 +82,7 @@ app.get('/', (req, res) => {
 
 app.get('/detailproduct/:id', (req, res) => {
     let idProduct = req.params.id;
-    const query = "SELECT * FROM tb_product WHERE id = ?";
+    const query = "SELECT * FROM tb_product WHERE id_prod = ?";
 
     dbConnection.getConnection((err, conn) => {
         if (err) throw err;
@@ -97,12 +99,15 @@ app.get('/detailproduct/:id', (req, res) => {
     });
 });
 
+
+// Routes
 app.use("/", authRoute);
 app.use("/", adminRoute);
 app.use("/", productRoute);
+app.use("/", brandRoute);
+app.use("/", categoryRoute);
 app.use("/", transactionRoute);
 app.use("/", paymentRoute);
-
 
 
 

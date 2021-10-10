@@ -1,0 +1,42 @@
+{{> header}}
+{{> nav}}
+
+<div class="container mt-3 mb-3">
+    {{#if message}}
+        <div class="alert alert-{{message.type}} mt-5 mb-3" role="alert">
+            {{message.message}}
+        </div>
+    {{/if}}
+</div>
+
+<div class="container">
+
+    <section>
+        <div class="container-fluid d-flex justify-content-center">
+            <div class="row mt-3">
+                {{#each data}}
+                <div class="col-sm">
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Invoice</b></h5>
+                            <p class="card-text">{{this.name}}</p>
+                            <span class="badge badge-warning mb-2">{{this.status_trsc}}</span>
+                            <p class="card-text">{{this.email}}</p>
+                            <p class="card-text"><b>Alamat</b> <br> {{this.address}}</p>
+                            <h6 class="card-title">Metode Pembayaran (Transfer) <br>
+                                BCA 082818283
+                            </h6>
+                            <p class="card-title"><b>Pengiriman :</b> <br><span class="badge badge-info p-2">{{this.payment_status}}</span></p>
+                            <hr>
+                            <h6 class="card-title text-danger"><b>Rp. {{this.sub_total}}</b></h6>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+            
+
+
+</div>

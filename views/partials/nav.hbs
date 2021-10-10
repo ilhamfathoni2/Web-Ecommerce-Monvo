@@ -1,45 +1,38 @@
 <!-- Header navbar Section Begin -->
-<header class="header">
+<header class="header bg-dark">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-3 col-lg-2">
                 <div class="header__logo">
-                    <a href=""><img src="static/img/logo2.png" alt=""></a>
+                    <a href="/"><img src="static/img/logo3.png" alt=""></a>
                 </div>
             </div>
             <div class="d-flex justify-content-center col-xl-6 col-lg-7">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="/">Home</a></li>
+                        <li class="active"><a href="/" class="text-white">Home</a></li>
                         {{#if isAdmin}}
-                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/dashboard" class="text-white">Dashboard</a></li>
                         {{/if}}
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="">Product Details</a></li>
-                                <li><a href="">Shop Cart</a></li>
-                                <li><a href="">Checkout</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
-                <div class="header__right">
+                <div class="header__right text-white">
                     {{#if isLogin}}
                     <div class="header__right__auth">
-                        <a href="/logout">Logout</a>
+                        <a href="/logout" class="text-white">Logout</a>
                     </div>
                     {{else}}
                     <div class="header__right__auth">
-                        <a href="/login">Login</a>
-                        <a href="/register">Register</a>
+                        <a href="/login" class="text-white">Login</a>
+                        <a href="/register" class="text-white">Register</a>
                     </div>
                     {{/if}}
                     <ul class="header__right__widget">
-                        <li><span class="icon_search search-switch"></span></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span>
-                            <div class="tip">2</div>
+                        <li><a href="/payment"><img src="static/img/uil_invoice.svg" width="30">
+                        </a></li>
+                        <li><a href="/transaction"><img src="static/img/icon-park_shopping-cart-one.svg" width="30">
                         </a></li>
                     </ul>
                 </div>

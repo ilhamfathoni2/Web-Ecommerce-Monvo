@@ -1,7 +1,7 @@
 {{> header}}
 {{> navadmin}}
 
-<div class="container mt-3 mb-3">
+<div class="container mt-3 mb-2">
     {{#if message}}
         <div class="alert alert-{{message.type}} mt-5 mb-3" role="alert">
             {{message.message}}
@@ -16,7 +16,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="/"><i class="fa fa-home"></i> Home</a>
-                        <span>Dashboard</span>
+                        <span>Transaction</span>
                     </div>
                 </div>
             </div>
@@ -30,25 +30,31 @@
 
                 <div class="card mb-4">
                     <div class="card-body">
-                        <a href="/product" class="btn btn-primary">Add Product</a>
+                        <h4>Transaction</h4>
                         <table class="table table-hover mt-3">
                             <thead>
                                 <tr class="text-center">
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Stock</th>
+                                    <th>User</th>
+                                    <th>Status</th>
+                                    <th>Qty</th>
+                                    <th>Address</th>
+                                    <th>Total</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{#each dataProduct}}
+                                {{#each detail}}
                                 <tr>
-                                    <td>{{this.name}}</td>
-                                    <td class="text-center text-danger">{{this.price}}</td>
-                                    <td class="text-center">{{this.stock}}</td>
+                                    <td class="text-center">{{this.email}}</td>
                                     <td class="text-center">
-                                        <a href="/edit-product/{{this.id_prod}}" class="btn btn-warning">Edit</a>
-                                        <a href="/delete/{{this.id_prod}}/{{this.photo}}" class="btn btn-danger">Delete</a>
+                                        <h5><span class="badge badge-info">{{this.status_trsc}}</span></h5>
+                                    </td>
+                                    <td class="text-center">{{this.qty}}</td>
+                                    <td class="text-center">{{this.address}}</td>
+                                    <td class="text-center">{{this.sub_total}}</td>
+                                    <td class="text-center">
+                                        <a href="/update-transaction/{{this.id_trs}}" class="btn btn-warning">Update</a>
+                                        <a href="/delete-trans/{{this.id_trs}}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 {{/each}}  

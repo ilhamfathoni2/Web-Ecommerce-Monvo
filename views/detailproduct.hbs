@@ -10,6 +10,7 @@
     <title>Monvo | {{title}}</title>
 </head>
 <body>
+
     <div class="container">
         <a href="/" class="btn btn-secondary mt-5"> < Back</a>
         {{#each detail}}
@@ -29,8 +30,13 @@
                     <h3 class="card-title">{{this.name}}</h3>
                     <p class="card-text mb-3">{{this.description}}</p>
                     <p class="card-text mt-3"><b>Stock : {{this.stock}}</b></p>
-                    <h4 class="card-title text-danger">Rp. {{this.price}}</h4>
-                    <a href="/transaction/{{this.price}}/{{this.id}}" class="btn btn-danger mt-5">ADD TO CHART</a>
+
+                    <form action="/transaction/{{this.price}}/{{this.id_prod}}" method="POST">
+                        <input type="number" name="qty" class="form-control mt-2 mb-3 col-lg-4" value="0">
+
+                        <h4 class="card-title text-danger">Rp. {{this.price}}</h4>
+                        <button type="submit" class="btn btn-danger mt-5">ADD TO CHART</button>
+                    </form>
                 </div>
             </div>
         </div>
